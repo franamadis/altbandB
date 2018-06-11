@@ -19,6 +19,7 @@ gem 'webpacker'
 
 #gems added
 gem 'devise'
+gem 'cloudinary'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
