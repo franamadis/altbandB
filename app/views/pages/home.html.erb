@@ -1,2 +1,24 @@
-<h1>Eatmina - Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="wrapper">
+  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1492097631548-189753426f9c?ixlib=rb-0.3.5&s=95053e05ec399e14bdd3a07bbdcb6db4&auto=format&fit=crop&w=1059&q=80');">
+    <div class="banner-content">
+      <h1>Le Wagon's Flat Rentals</h1>
+      <p>Rent a Flat to learn code with us</p>
+      <a class="btn-medium"><%= link_to "Sign In", new_user_session_path %></a>
+    </div>
+  </div>
+  <div class="container">
+    <h4>Homes around the world</h4>
+    <div class="row">
+      <% @flats.each do |flat| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path(flat.photo) %>');">
+          <div class="card-description">
+            <h2><%= link_to flat.name, flat_path(flat) %></h2>
+            <p>flat.description</p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

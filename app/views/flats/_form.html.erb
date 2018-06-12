@@ -1,0 +1,12 @@
+<h1>Create your Flat</h1>
+<%= simple_form_for @flat do |f| %>
+<%= f.input :name, placeholder: "Insert the name of your flat here", label: false %>
+<%= f.input :address, placeholder: "Insert the address of your flat here", label: false %>
+<%= f.input :description, placeholder: "Insert the description of your flat here", label: false %>
+<%= f.input :price, placeholder: "Insert the price of your flat here", label: false %>
+<%= f.input :max_guests, :collection => 1..15, label: false, :prompt => "Select how many guests" %>
+<p>Upload a photo from your flat below</p>
+<%= f.input :photo, label: false %>
+<%= f.input :photo_cache, as: :hidden %>
+<%= f.button :submit %>
+<% end %>
