@@ -39,8 +39,9 @@ class FlatsController < ApplicationController
   end
 
   def update
-    if @flat.update(flat_params)
+      @flat = Flat.find(params[:id])
       authorize @flat
+    if @flat.update(flat_params)
       redirect_to flat_path(@flat)
     else
       render :edit
