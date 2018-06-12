@@ -1,4 +1,17 @@
+<h1>Summary of your booking</h1>
+<hr>
 
+<h4>Booking status: <%= @booking.status %> </h4>
 
- Total
-<%= @booking.total  %>
+<p>Number of guests: <%= @booking.guests  %></p>
+<p>Number of nights: <%= @booking.period  %></p>
+<p>Booked at: <%= @booking.created_at.strftime("%a, %b %d, %Y") %></p>
+<h4>Total price: <%= @booking.total %> </h4>
+<hr>
+
+<h4>Flat's info:</h4>
+<p>Name of apartment: <%= @booking.flat.name %> </p>
+<p>Location: <%= @booking.flat.address %> </p>
+<p>Description: <%= @booking.flat.description %> </p>
+
+<p>Price per night: <%= @booking.flat.price %> </p>
