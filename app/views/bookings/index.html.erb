@@ -6,7 +6,7 @@
         <% @bookings.each do |booking| %>
           <li><%= booking.flat.name %></li>
           <li>Your stay is for <%= booking.period %> days</li>
-          <li>You pay for <%= booking.value %> it.</li>
+          <li>You pay for <%= booking.total %> it.</li>
           <li>The status of this booking is <%= booking.status %>;</li>
         <% end %>
       </ul>
