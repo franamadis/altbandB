@@ -1,12 +1,18 @@
 <div>
-  <div class="banner" style="background-image: url('<%= cl_image_path @flat.photo, height: 300, width: 400, crop: :fill %>');">
-    <div class="banner-content uptext">
-      <h2><%= @flat.name %></h2>
-      <p><%= @flat.address %></p>
-      <p><%= @flat.description %></p>
-      <p><%= @flat.price %></p>
-      <p><%= @flat.max_guests %></p>
+  <% if @flat.photo? %>
+    <div class="banner banner-image" style="background-image: url('<%= cl_image_path @flat.photo %>');">
+  <% else %>
+      <div class="banner banner-image" style="background-image: url('<%= image_path("example.png")%>');">
+    <% end %>
+      <div class="banner-content uptext">
+        <h2><%= @flat.name %></h2>
+        <p><%= @flat.address %></p>
+        <p><%= @flat.description %></p>
+        <p><%= @flat.price %></p>
+        <p><%= @flat.max_guests %></p>
+      </div>
     </div>
+
     <hr>
     </div>
     <% if policy(@flat).edit? %>
