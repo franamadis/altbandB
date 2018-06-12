@@ -1,14 +1,19 @@
 class FlatsController < ApplicationController
   before_action :set_user, only: [:new, :create]
 
+  def index
+    @flats = policy_scope(Flat).order(created_at: desc)
+  end
+
   def new
     @flat = Flat.new
+    authorize @flat
   end
 
   def create
-    @flat = Flat.new(review_params)
-    # we need `cocktail_id/ingredient_id` to asssociate review with corresponding restaurant
+    @flat = Flat.new(flat_params)
     @flat.user = @user
+    authorize @flat
     if @flat.save
       redirect_to flat_path(@flat)
     else
@@ -17,18 +22,34 @@ class FlatsController < ApplicationController
   end
   def show
     @flat = Flat.find(params[:id])
+    authorize @flat
+  end
+
+  def edit
+    @flat = Flat.find(params[:id])
+    authorize @flat
   end
 
   def destroy
      @flat = Flat.find(params[:id])
+     authorize @flat
      user = @flat.user
      @flat.destroy
      redirect_to root_path
   end
 
+  def update
+    if @flat.update(flat_params)
+      authorize @flat
+      redirect_to flat_path(@flat)
+    else
+      render :edit
+    end
+  end
+
   private
 
-  def review_params
+  def flat_params
     params.require(:flat).permit(:name, :address, :description, :price, :max_guests, :photo)
   end
 
