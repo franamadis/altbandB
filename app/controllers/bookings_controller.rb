@@ -1,7 +1,9 @@
 class BookingsController < ApplicationController
 
   def index
-    @booking = Booking.all
+    #display all bookings of each user
+    # raise
+    @bookings = current_user.bookings
   end
 
   def show
