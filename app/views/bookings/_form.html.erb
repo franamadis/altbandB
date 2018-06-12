@@ -1,5 +1,5 @@
 <%= simple_form_for [@flat, @booking] do |f| %>
-<h4>$<%= flat.price  %> per night </h4>
+<h4>$<%= @flat.price  %> per night </h4>
 <%= f.input :period, placeholder: "Insert the number of nights you want", label: false %>
 <%= f.input :guests, placeholder: "Insert the number of guests you have", label: false %>
 <%= f.button :submit %>
