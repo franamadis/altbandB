@@ -2,7 +2,7 @@
 <%= simple_form_for @flat do |f| %>
 <%= f.input :name, placeholder: "Name of your flat", label: false %>
 <%= f.input :address, placeholder: "Type the address", label: false %>
-<%= f.input :description, placeholder: "Tell us more about the flat", label: false %>
+<%= f.input :description, placeholder: "Describe your flat", label: false %>
 <%= f.input :price, placeholder: "Price per night (£)", label: false %>
 <%= f.input :max_guests, :collection => 1..15, label: false, :prompt => "Maximum of guests" %>
 
