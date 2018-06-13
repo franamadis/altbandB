@@ -1,4 +1,7 @@
-<div>
+<div class=container>
+  <div class="row">
+    <div class="col-xs-8">
+
   <% if @flat.photo? %>
     <div class="banner banner-image" style="background-image: url('<%= cl_image_path @flat.photo %>');">
   <% else %>
@@ -8,8 +11,7 @@
         <h2><%= @flat.name %></h2>
       </div>
       <%= render 'form' %>
-
-
+ /<div>
 </div>
 
 
