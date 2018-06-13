@@ -26,13 +26,6 @@
         <p><%= @flat.max_guests %></p>
          <%= link_to "Book Now", new_flat_booking_path(@flat), class: "card-link"%>
       </div>
-
-      <div
-        id="map"
-        style="width: 100%;
-        height: 600px;"
-        data-markers="<%= @markers.to_json %>">
-      </div>
     </div>
 
     <hr>
