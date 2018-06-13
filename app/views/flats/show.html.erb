@@ -4,7 +4,7 @@
   <% else %>
       <div class="banner banner-image" style="background-image: url('<%= image_path("example.png")%>');">
     <% end %>
-    
+
       <div class="banner-content uptext">
         <h2><%= @flat.name %></h2>
         <p><%= @flat.address %></p>
@@ -13,8 +13,12 @@
         <p><%= @flat.max_guests %></p>
          <%= link_to "Book Now", new_flat_booking_path(@flat), class: "card-link"%>
       </div>
-
-
+      <div
+        id="map"
+        style="width: 100%;
+        height: 600px;"
+        data-markers="<%= @markers.to_json %>">
+      </div>
     </div>
 
     <hr>
