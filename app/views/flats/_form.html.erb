@@ -6,10 +6,10 @@
 <%= f.input :price, placeholder: "Price per night (£)", label: false %>
 <%= f.input :max_guests, :collection => 1..15, label: false, :prompt => "Maximum of guests" %>
 
-<p>Upload photo of the flat</p>
+<p class="photo-title">Upload flat's photo</p>
 
-<label class="btn btn-primary">
-  Add a file!
+<label class="btn btn-primary button-flat">
+  Add picture
   <span style="display:none;">
     <%= f.input :photo, required: true, name: 'image' %>
   </span>
@@ -17,7 +17,7 @@
 
 
 <%= f.input :photo_cache, as: :hidden %>
-<%= f.button :submit %>
+<%= f.button :submit%>
 <% end %>
 
 
