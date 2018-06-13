@@ -1,5 +1,7 @@
 <div class="container">
+  <div class="title">
   <h4>Homes around the world</h4>
+  </div>
   <div class="row">
     <% @flats.each do |flat| %>
       <div class="col-xs-12 col-sm-4">
@@ -12,7 +14,7 @@
           <a class="card-link" href="<%= flat_path(flat) %>"></a>
           <div class="card-description">
             <h2><%= link_to flat.name, flat_path(flat) %></h2>
-            <p>flat.description</p>
+            <p> <%= flat.description %> </p>
           </div>
         </div>
       </div>

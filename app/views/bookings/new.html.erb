@@ -1,15 +1,22 @@
-<div>
-  <% if @flat.photo? %>
-    <div class="banner banner-image" style="background-image: url('<%= cl_image_path @flat.photo %>');">
-  <% else %>
-      <div class="banner banner-image" style="background-image: url('<%= image_path("example.png")%>');">
-  <% end %>
-      <div class="banner-content uptext">
-        <h2><%= @flat.name %></h2>
+<div class="container">
+
+  <div class="row">
+    <div class="col-xs-8">
+      <div class="boxes">
+        <% if @flat.photo? %>
+          <div class="banner banner-image" style="background-image: url('<%= cl_image_path @flat.photo %>');">
+          </div>
+        <% else %>
+          <div class="banner banner-image" style="background-image: url('<%= image_path("example.png")%>');">
+          </div>
+        <% end %>
       </div>
-      <%= render 'form' %>
-
-
+    </div>
+    <div class="col-xs-4">
+      <div class="boxes" id="formulaire">
+        <p><strong><%= @flat.name %></p></strong>
+        <%= render 'form' %>
+      </div>
+    </div>
+  </div>
 </div>
-
-

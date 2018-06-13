@@ -1,0 +1,35 @@
+// Recreate the simple form for flat
+
+
+.new_flat {
+  .form-control {
+    border-radius: 5px;
+    color: grey;
+    name {
+      color: grey;
+    }
+  }
+
+// FLATS new.html.erb
+  .photo-title {
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    margin-top: 30px;
+  }
+  // .fileinput-button {
+  // position: relative;
+  // overflow: hidden;
+  // float: left;
+  // margin-right: 4px;
+  // width: 110px;
+  // height: 32px;
+  // input{
+  //   opacity: 0;
+  //   filter: alpha(opacity=0);
+  //   transform: translate(-300px, 0) scale(4);
+  //   direction: ltr;
+  //   cursor: pointer;
+  // }
+
+}
+

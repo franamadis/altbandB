@@ -1,5 +1,5 @@
-<%= simple_form_for [@flat, @booking] do |f| %>
-<h4>£<%= @flat.price  %> per night </h4>
+<%= simple_form_for [@flat, @booking], html: { class: "new_flat"} do |f| %>
+<p>£<%= @flat.price  %> per night </p>
 Number of Nights:
 <%= f.input :period, placeholder: "Insert the number of nights you want", :collection => 1..30, default: '1', label: false %>
 Max Guests: <%= @flat.max_guests %>
