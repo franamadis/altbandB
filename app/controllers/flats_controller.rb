@@ -21,6 +21,7 @@ class FlatsController < ApplicationController
   end
   def show
     @flat = Flat.find(params[:id])
+
     authorize @flat
   end
 
