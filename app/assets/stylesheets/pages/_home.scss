@@ -7,11 +7,11 @@
     color: #616668;
     font-size: 14px;
     text-align: center;
-    margin-top: 15px;
+    margin-top: 0px;
     }
     
 .row-main {
-        display: flex;
+        // display: flex;
         width: 100%
     }
     
@@ -20,10 +20,25 @@
 // }
 
 .left-main {
-    width: 75%;
+    width: 100%;
 }
 
 .right-main {
-    margin-top: 10px;
-    width: 25%;
+    margin-top: 100 px;
+    width: 100%;
+}
+
+a[href^="http://maps.google.com/maps"]{display:none !important}
+a[href^="https://maps.google.com/maps"]{display:none !important}
+
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}
+
+.padding-0{
+    padding-right:0;
+    padding-left:0;
 }

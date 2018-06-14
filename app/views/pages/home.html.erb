@@ -1,11 +1,23 @@
+
+
 <div class="">
   <div class="title">
     <div class="title">
     </div>
     <div class="row-main">
+      <div class="right-main">
+
+    <div
+      id="map"
+      style="width: 100%;
+      height: 300px;"
+      data-markers="<%= @markers.to_json %>">
+    </div>
+    </div>
+  </div>
   <div class="left-main">
     <% @flats.each do |flat| %>
-      <div class="col-xs-6 col-sm-6">
+      <div class="col-xs-4 col-sm-4 padding-0">
           <% if flat.photo? %>
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path(flat.photo) %>');">
               <% else %>
@@ -22,17 +34,5 @@
       </div>
     <% end %>  
   </div>
-
-  <div class="right-main">
-    <div
-      id="map"
-      style="border-radius: 10px; width: 100%;
-      height: 600px;"
-      data-markers="<%= @markers.to_json %>">
-    </div>
-    </div>
-  </div>
- 
- 
   
 </div>
