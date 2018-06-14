@@ -5,6 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :flats
   has_many :bookings
+
+  validates :email, uniqueness: true
+  validates :email, presence: true
+  validates_format_of :email,:with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
+
   devise :omniauthable, omniauth_providers: %i[facebook]
   def self.new_with_session(params, session)
     super.tap do |user|
@@ -13,7 +18,6 @@ class User < ApplicationRecord
       end
     end
   end
-
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -24,6 +28,17 @@ class User < ApplicationRecord
       # If you are using confirmable and the provider(s) you use validate emails,
       # uncomment the line below to skip the confirmation emails.
       # user.skip_confirmation!
+    end
+  end
+
+  def reservations
+    flats.map { |flat| flat.bookings }.flatten
+  end
+
+  def owner
+    owner = Flat.where(user_id: self.id)
+    if owner != nil
+      self.owner = true
     end
   end
 end
