@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # delete new method from bookings controller as well
   resources :flats do
 
-    resources :bookings, only: [:create]
+    resources :bookings, only: [:create, :edit, :update]
 
   end
   resources :bookings, only: [ :index, :show]

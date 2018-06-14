@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
-  skip_after_action :verify_authorized
+  # skip_after_action :verify_authorized
 
   def index
     @bookings = policy_scope(current_user.bookings)
