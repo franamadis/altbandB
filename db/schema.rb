@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2018_06_14_104636) do
+
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +21,7 @@ ActiveRecord::Schema.define(version: 2018_06_14_104636) do
   create_table "bookings", force: :cascade do |t|
     t.integer "period"
     t.float "total"
-    t.string "status"
+    t.string "status", default: "pending"
     t.integer "guests"
     t.bigint "user_id"
     t.bigint "flat_id"
@@ -59,6 +62,7 @@ ActiveRecord::Schema.define(version: 2018_06_14_104636) do
     t.string "provider"
     t.string "uid"
     t.boolean "admin"
+
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

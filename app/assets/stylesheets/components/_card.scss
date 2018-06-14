@@ -1,13 +1,12 @@
 .card {
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px darkgrey;
-  margin: 10px 10px;
-  height: 175px;
+  border-radius: 0px;
+  box-shadow: 3px 3px 3px darkgrey;
+  margin: 5px 5px;
+  height: 150px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
-  color: white;
-  opacity: 0.7;
+  opacity: 0.9;
   position: relative;
   transform-origin: center;
   transition: .5s;
@@ -89,7 +88,7 @@
   display: flex;
   text-align: center;
   justify-content: space-between;
-  padding-left: 200px;
+  padding-left: 50px;
 }
 
 
