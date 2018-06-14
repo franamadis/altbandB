@@ -8,7 +8,6 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
-
   end
 
 
@@ -19,6 +18,7 @@ class BookingsController < ApplicationController
 
   def create
     @flat = Flat.find(params[:flat_id])
+    # log in for making booking
     @bookings = policy_scope(current_user.bookings)
 
     @booking = Booking.new(booking_params)
@@ -26,11 +26,16 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.total = @booking.flat.price * @booking.period
 
+    # added new booking to flats bookings/new.html.erb deleted
       if @booking.save
       redirect_to booking_path(@booking)
+      # redirect_to bookings_path
     else
-      render "bookings/new"
+      # render "bookings/new"
+      render "flats/show"
     end
+
+
   end
 
   def edit
