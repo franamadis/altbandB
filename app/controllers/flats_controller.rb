@@ -30,6 +30,8 @@ class FlatsController < ApplicationController
   end
   def show
     @flat = Flat.find(params[:id])
+    # added to combine bookings method to flat show page
+    @booking = Booking.new
 
     authorize @flat
   end

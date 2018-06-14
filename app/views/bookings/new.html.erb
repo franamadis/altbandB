@@ -1,23 +1,29 @@
-<%= render 'shared/navbar' %>
+<!-- < render 'shared/navbar' >
+
 <div class="container">
 
   <div class="row">
     <div class="col-xs-8">
       <div class="boxes">
-        <% if @flat.photo? %>
+
+        < if @flat.photo? >
           <div class="banner banner-image" style="background-image: url('<%= cl_image_path @flat.photo %>');">
           </div>
-        <% else %>
-          <div class="banner banner-image" style="background-image: url('<%= image_path("example.png")%>');">
+
+        < else >
+          <div class="banner banner-image" style="background-image: url('< = image_path("example.png")%>');">
           </div>
-        <% end %>
+        < end >
       </div>
     </div>
+
     <div class="col-xs-4">
       <div class="boxes" id="formulaire">
-        <p><strong><%= @flat.name %></p></strong>
-        <%= render 'form' %>
+        <p><strong><= @flat.name ></p></strong>
+        <= render 'form' >
       </div>
     </div>
+
   </div>
 </div>
+ -->
