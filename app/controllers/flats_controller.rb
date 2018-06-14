@@ -2,6 +2,7 @@ class FlatsController < ApplicationController
   before_action :set_user, only: [:new, :create]
 
   def index
+    @flats = policy_scope(Flat).order(created_at: :desc)
     @flats = Flat.where.not(latitude: nil, longitude: nil)
 
     @markers = @flats.map do |flat|
