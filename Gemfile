@@ -24,6 +24,7 @@ gem 'carrierwave', '~> 1.2'
 gem 'pundit'
 gem 'omniauth-facebook'
 gem "geocoder"
+gem 'pg_search'
 
 
 group :development do
