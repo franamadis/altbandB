@@ -1,11 +1,6 @@
 <div>
-  <div class="card-one" style="background-color:lightgray;">
-    <div class="center-text">
-      <h1>Le Wagon's Rental Flat</h1>
-      <h4>It's not about code, enjoy the journey!</h4>
-      <p class="inline"><%= render "devise/shared/links" %></p>
-    </div>
-  </div>
+ 
+
   <div class="banner-one" style="background-image: linear-gradient(-36deg, rgba(255,25,25,0.2) 0%, rgba(0,36,61,0.6) 85%), url('https://robins-place-bali.com/wp-content/uploads/2017/06/bali-travel.jpg');">
     <div class="banner-content">
       <h2>Log in</h2>
@@ -19,6 +14,12 @@
           <%= f.button :submit, "Log in" %>
         </div>
       <% end %>
+   
     </div>
-  </div>
+          </div>
+      <div class="registration">
+       <%= render "devise/shared/links" %>
+       </div>
+ 
 </div>
+   
