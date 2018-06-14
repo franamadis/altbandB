@@ -12,6 +12,11 @@ class Flat < ApplicationRecord
   validates :description, presence: true
   validates :price, numericality: { greater_than_or_equal_to: 0 }
   validates :max_guests, numericality: {greater_than_or_equal_to: 0 }
-
+  include PgSearch
+  pg_search_scope :search_by_name_and_address,
+    against: [ :name, :address ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 end
 
