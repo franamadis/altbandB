@@ -10,20 +10,18 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-  def new
-    @flat = Flat.find(params[:flat_id])
-    @booking = Booking.new
-  end
+  # def new
+  #   @flat = Flat.find(params[:flat_id])
+  #   @booking = Booking.new
+  # end
 
   def create
     @flat = Flat.find(params[:flat_id])
-    
-    
     @booking = Booking.new(booking_params)
     @booking.flat = @flat
     @booking.user = current_user
     @booking.total = @booking.flat.price * @booking.period
-  
+
       if @booking.save
       redirect_to booking_path(@booking)
     else
