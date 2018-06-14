@@ -1,38 +1,37 @@
+<%= render 'shared/navbar' %>
 <div>
-
-
-<div class="container">
-
-  <div class="row">
-    <div class="col-xs-8">
-      <div class="boxes">
-        <% if @flat.photo? %>
-          <div class="banner banner-image" style="background-image: url('<%= cl_image_path @flat.photo %>');">
-          </div>
-        <% else %>
-          <div class="banner banner-image" style="background-image: url('<%= image_path("example.png")%>');">
-          </div>
-        <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-8">
+        <div class="boxes">
+          <% if @flat.photo? %>
+            <div class="banner banner-image" style="background-image: url('<%= cl_image_path @flat.photo %>');">
+            </div>
+          <% else %>
+            <div class="banner banner-image" style="background-image: url('<%= image_path("example.png")%>');">
+            </div>
+          <% end %>
+        </div>
       </div>
-    </div>
-    <div class="col-xs-4">
-      <div class="boxes" id="formulaire">
-          <div class="banner-content uptext">
-
-        <h2><%= @flat.name %></h2>
-        <p><%= @flat.address %></p>
-        <p><%= @flat.description %></p>
-        <p><%= @flat.price %></p>
-        <p><%= @flat.max_guests %></p>
-         <%= link_to "Book Now", new_flat_booking_path(@flat), class: "card-link"%>
+      <div class="col-xs-4">
+        <div class="boxes" id="formulaire">
+            <div class="banner-content uptext">
+              <h2><%= @flat.name %></h2>
+              <p><%= @flat.address %></p>
+              <p><%= @flat.description %></p>
+              <p><%= @flat.price %></p>
+              <p><%= @flat.max_guests %></p>
+               <%= link_to "Book Now", new_flat_booking_path(@flat), class: "card-link"%>
+            </div>
+        <div
+          id="map"
+          style="width: 100%;
+          height: 600px;"
+          data-markers="<%= @markers.to_json %>">
+        </div>
       </div>
-    </div>
-
-    <hr>
-
     </div>
   </div>
-</div>
     <% if policy(@flat).edit? %>
       <div class="buttons">
         <%= link_to "Update", edit_flat_path(@flat) %>
