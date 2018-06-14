@@ -1,3 +1,4 @@
+<%= render 'shared/navbar' %>
 <div class="container">
   <div class="title">HOMES FROM AROUND THE WORLD</div>
   <div class="row">
@@ -12,7 +13,7 @@
           <a class="card-link" href="<%= flat_path(flat) %>"></a>
           <div class="card-description">
             <h2><%= link_to flat.name, flat_path(flat) %></h2>
-            <p>flat.description</p>
+            <p> <% flat.description %> </p>
           </div>
         </div>
       </div>
