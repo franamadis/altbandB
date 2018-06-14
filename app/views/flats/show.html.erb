@@ -41,15 +41,18 @@
 <!-- uncomment booking new method, added to flats controller -->
     <div class="col-xs-4">
       <div class="boxes" id="formulaire">
-        <p><strong><%= @flat.name %></p></strong>
+
+        <p><strong> <%= @flat.name %> </p></strong>
+        <!-- < if current_user.flats > -->
+          <!-- <p>Sorry, you can't book your own flat, silly!</p> -->
+        <!-- < else > -->
         <%=  render 'bookings/form', flat: @flat, booking: @booking %>
+        <!-- < end > -->
       </div>
     </div>
 
   </div>
 
-<!--   </div>
--->
 
 <% if policy(@flat).edit? %>
 <div class="buttons">

@@ -1,25 +1,74 @@
+<!-- This is related with id and user of bookings = leave it -->
 <div class="container">
-  <h1>Summary of your booking</h1>
-  <hr>
 
-  <h4>Booking status: <%= @booking.status %> </h4>
-
-  <p>Number of guests: <%= @booking.guests  %></p>
-  <p>Number of nights: <%= @booking.period  %></p>
-  <p>Booked at: <%= @booking.created_at.strftime("%a, %b %d, %Y") %></p>
-  <h4>Total price: <%= @booking.total %> </h4>
-  <hr>
-
-  <h4>Flat's info:</h4>
-  <p>Name of apartment: <%= @booking.flat.name %> </p>
-  <p>Location: <%= @booking.flat.address %> </p>
-  <p>Description: <%= @booking.flat.description %> </p>
-
-  <p>Price per night: <%= @booking.flat.price %> </p>
-
-  <div class="btn btn-primary button-flat">
-    <%= link_to "Back", root_path %>
+<!-- maps whole display -->
+  <div class="row">
+    <div class="col-xs-12">
+       <div
+          id="map"
+          style="width: 100%;
+          height: 300px;"
+          data-markers="<%= @marker.to_json %>">
+        </div>
+    </div>
   </div>
 
-</div>
+<!-- first column picture and summary -->
+  <div class="row">
+    <div class="col-xs-7">
 
+      <!-- col-xs-4 col-sm-4 -->
+      <h2>Summary of your booking</h2>
+          <hr>
+      <!-- Card box style -->
+
+        <div class="col-xs-12 padding-0">
+          <div class="card" style="background-image: url('<%= cl_image_path @booking.flat.photo %>');">
+          </div>
+        </div>
+      <hr>
+    <!-- summary text -->
+        <div>
+
+          <h4>Booking status: <%= @booking.status %> </h4>
+
+          <p>Number of guests: <%= @booking.guests  %></p>
+          <p>Number of nights: <%= @booking.period  %></p>
+          <p>Booked at: <%= @booking.created_at.strftime("%a, %b %d, %Y") %></p>
+          <h4>Total price: £<%= @booking.total %> </h4>
+          <hr>
+
+          <h4>Flat's info:</h4>
+          <p>Name of apartment: <%= @booking.flat.name %> </p>
+          <p>Location: <%= @booking.flat.address %> </p>
+          <p>Description: <%= @booking.flat.description %> </p>
+
+          <h4>Price per night: £<%= @booking.flat.price %> </h4>
+          <hr>
+          <div class="btn btn-primary button-flat">
+            <%= link_to "Back", root_path %>
+          </div>
+
+        </div>
+
+      <!-- </div> -->
+    </div>
+<!-- second column -->
+  <div class="row">
+    <div class="col-xs-5">
+      <h2>checking if it works</h2>
+      <hr>
+
+      <h4>kdfksjflkdkfjsdklfjlsdjflk </h4>
+      <h4>kdfksjflkdkfjsdklfjlsdjflk </h4>
+      <h4>kdfksjflkdkfjsdklfjlsdjflk </h4>
+      <h4>kdfksjflkdkfjsdklfjlsdjflk </h4>
+      <h4>kdfksjflkdkfjsdklfjlsdjflk </h4>
+      <h4>kdfksjflkdkfjsdklfjlsdjflk </h4>
+
+      <p>Number of nights: <%= @booking.period  %></p>
+    </div>
+  </div>
+
+  <!-- </div> -->
+</div>
