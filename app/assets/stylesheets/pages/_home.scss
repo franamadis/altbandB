@@ -3,7 +3,27 @@
     height: 300; width: 400; crop: fill;
     }
     
-    .title {
-        text-align: center;
+.title {
+    color: #616668;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 15px;
     }
     
+.row-main {
+        display: flex;
+        width: 100%
+    }
+    
+// .column-main {
+//     float: left;
+// }
+
+.left-main {
+    width: 75%;
+}
+
+.right-main {
+    margin-top: 10px;
+    width: 25%;
+}
