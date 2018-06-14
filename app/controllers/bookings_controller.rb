@@ -1,29 +1,30 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user!
+  skip_after_action :verify_authorized
 
   def index
-    #display all bookings of each user
-    # raise
-    @bookings = current_user.bookings
+    @bookings = policy_scope(current_user.bookings)
   end
 
   def show
     @booking = Booking.find(params[:id])
+
   end
 
   def new
     @flat = Flat.find(params[:flat_id])
     @booking = Booking.new
+
   end
 
   def create
     @flat = Flat.find(params[:flat_id])
-    
-    
+    @bookings = policy_scope(current_user.bookings)
     @booking = Booking.new(booking_params)
     @booking.flat = @flat
     @booking.user = current_user
     @booking.total = @booking.flat.price * @booking.period
-  
+
       if @booking.save
       redirect_to booking_path(@booking)
     else
