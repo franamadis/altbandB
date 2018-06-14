@@ -2,15 +2,22 @@ class FlatsController < ApplicationController
   before_action :set_user, only: [:new, :create]
 
   def index
-    @flats = policy_scope(Flat).order(created_at: :desc)
-    @flats = Flat.where.not(latitude: nil, longitude: nil)
 
-    @markers = @flats.map do |flat|
-      {
-        lat: flat.latitude,
-        lng: flat.longitude#,
-        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
-      }
+    if params[:query].present?
+      @flats = policy_scope(Flat).order(created_at: :desc)
+      @flats = Flat.search_by_name_and_address(params[:query])
+    else
+      @flats = policy_scope(Flat).order(created_at: :desc)
+      @flats = Flat.where.not(latitude: nil, longitude: nil)
+
+
+      @markers = @flats.map do |flat|
+        {
+          lat: flat.latitude,
+          lng: flat.longitude#,
+          # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+        }
+      end
     end
   end
 
