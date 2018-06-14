@@ -5,6 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :flats
   has_many :bookings
+
+  validates :email, uniqueness: true
+  validates :email, presence: true
+  validates_format_of :email,:with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
+
   devise :omniauthable, omniauth_providers: %i[facebook]
   def self.new_with_session(params, session)
     super.tap do |user|
