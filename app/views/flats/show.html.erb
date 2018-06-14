@@ -1,28 +1,34 @@
 <div>
   <div class="container">
+
     <div class="row">
-      <div class="col-xs-8">
+      <div class="col-xs-12">
         <div class="boxes">
+
           <% if @flat.photo? %>
-            <div class="banner banner-image" style="background-image: url('<%= cl_image_path @flat.photo %>');">
-            </div>
+          <div class="banner banner-image" style="background-image: url('<%= cl_image_path @flat.photo %>');">
+          </div>
+
           <% else %>
-            <div class="banner banner-image" style="background-image: url('<%= image_path("example.png")%>');">
-            </div>
+          <div class="banner banner-image" style="background-image: url('<%= image_path("example.png")%>');">
+          </div>
           <% end %>
         </div>
       </div>
-      <div class="col-xs-4">
+    </div>
+
+    <div class="row">
+      <div class="col-xs-8">
         <div class="boxes" id="formulaire">
-            <div class="banner-content uptext">
-              <h2><%= @flat.name %></h2>
-              <p><%= @flat.address %></p>
-              <p><%= @flat.description %></p>
-              <p><%= @flat.price %></p>
-              <p><%= @flat.max_guests %></p>
-               <%= link_to "Book Now", new_flat_booking_path(@flat), class: "card-link"%>
-            </div>
-        <div
+          <div class="banner-content uptext">
+            <h2><%= @flat.name %></h2>
+            <p><%= @flat.address %></p>
+            <p><%= @flat.description %></p>
+            <p><%= @flat.price %></p>
+            <p><%= @flat.max_guests %></p>
+            <!-- < link_to "Book Now", new_flat_booking_path(@flat), class: "card-link" > -->
+          </div>
+          <div
           id="map"
           style="width: 100%;
           height: 600px;"
@@ -30,11 +36,25 @@
         </div>
       </div>
     </div>
-  </div>
-    <% if policy(@flat).edit? %>
-      <div class="buttons">
-        <%= link_to "Update", edit_flat_path(@flat) %>
-        <%= link_to "Delete", flat_path(@flat), method: :delete, data: { confirm: "Are you sure you want to delete?" } %>
+
+<!-- added form for booking, changing routes booking [:new] -->
+<!-- uncomment booking new method, added to flats controller -->
+    <div class="col-xs-4">
+      <div class="boxes" id="formulaire">
+        <p><strong><%= @flat.name %></p></strong>
+        <%=  render 'bookings/form', flat: @flat, booking: @booking %>
       </div>
-    <% end %>
+    </div>
+
+  </div>
+
+<!--   </div>
+-->
+
+<% if policy(@flat).edit? %>
+<div class="buttons">
+  <%= link_to "Update", edit_flat_path(@flat) %>
+  <%= link_to "Delete", flat_path(@flat), method: :delete, data: { confirm: "Are you sure you want to delete?" } %>
+</div>
+<% end %>
 </div>

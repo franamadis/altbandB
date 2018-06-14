@@ -1,7 +1,7 @@
-class FlatPolicy < ApplicationPolicy
+class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope
     end
   end
 
@@ -25,5 +25,3 @@ class FlatPolicy < ApplicationPolicy
     @record.user == @user || @user.admin
   end
 end
-
-
