@@ -14,7 +14,6 @@ class User < ApplicationRecord
     end
   end
 
-
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
@@ -24,6 +23,17 @@ class User < ApplicationRecord
       # If you are using confirmable and the provider(s) you use validate emails,
       # uncomment the line below to skip the confirmation emails.
       # user.skip_confirmation!
+    end
+  end
+
+  def reservations
+    flats.map { |flat| flat.bookings }.flatten
+  end
+
+  def owner
+    owner = Flat.where(user_id: self.id)
+    if owner != nil
+      self.owner = true
     end
   end
 end

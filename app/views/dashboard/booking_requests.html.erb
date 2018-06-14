@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>My booking requests</h2>
+  <p>Below you have a list with all yours requests</p>
+  <p>Please update it, as soon as possible:</p>
+  <% @reservations.each do |request| %>
+  <div class="message">
+    <div class="message-name">
+
+      <p> <%= request.guests %> people </p>
+    </div>
+    <div class="message-body">
+      <p><strong> <%=  request.flat.name %></strong></p>
+      <p>
+       From 05/06/12, for <%= request.period %> days
+      </p>
+    </div>
+    <div class="message-status">
+       <div class="form-group">
+        <%= render 'form', booking: request %>
+      </div>
+      <p class="price"> <%= request.total %> € </p>
+    </div>
+  </div>
+  <% end %>
+</div>
