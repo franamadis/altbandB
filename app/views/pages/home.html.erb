@@ -1,25 +1,42 @@
-<div class="container">
+<div class="">
   <div class="title">
-  <h4>Homes around the world</h4>
-  </div>
-  <div class="row">
-    <% @flats.each do |flat| %>
-      <div class="col-xs-12 col-sm-4">
-        <% if flat.photo? %>
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path(flat.photo) %>');">
-        <% else %>
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path("example.png") %>');">
-        <% end %>
-        <div class="linker">
-          <a class="card-link" href="<%= flat_path(flat) %>"></a>
-          <div class="card-description">
-            <h2><%= link_to flat.name, flat_path(flat) %></h2>
-            <p> <%= flat.description %> </p>
-          </div>
-        </div>
-      </div>
+    <div class="title">
     </div>
-  <% end %>
+    <div class="row-main">
+  <div class="left-main">
+    <% @flats.each do |flat| %>
+      <div class="col-xs-6 col-sm-6">
+          <% if flat.photo? %>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path(flat.photo) %>');">
+              <% else %>
+                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path("example.png") %>');">
+          <% end %>
+              <div class="linker">
+              <a class="card-link" href="<%= flat_path(flat) %>"></a>
+                <div class="card-description">
+                  <h2><%= link_to flat.name, flat_path(flat) %></h2>
+                  <p> <%= flat.description %> </p>
+                </div>
+              </div>
+            </div>
+      </div>
+    <% end %>  
+  </div>
+
+  <div class="right-main">
+    <div
+      id="map"
+      style="border-radius: 10px; width: 100%;
+      height: 600px;"
+      data-markers="<%= @markers.to_json %>">
+    </div>
+    </div>
+  </div>
+
+  
 </div>
 
 
+
+
+  
