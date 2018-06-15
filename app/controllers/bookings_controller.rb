@@ -1,3 +1,4 @@
+require "date"
 class BookingsController < ApplicationController
   before_action :authenticate_user!
   # skip_after_action :verify_authorized
@@ -8,6 +9,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    @flat = Flat.find(@booking.flat_id)
   end
 
 
@@ -18,9 +20,7 @@ class BookingsController < ApplicationController
 
   def create
     @flat = Flat.find(params[:flat_id])
-    # log in for making booking
     @bookings = policy_scope(current_user.bookings)
-
     @booking = Booking.new(booking_params)
     @booking.flat = @flat
     @booking.user = current_user
@@ -58,7 +58,7 @@ class BookingsController < ApplicationController
 private
 
   def booking_params
-    params.require(:booking).permit(:period, :total, :status, :guests, :flat_id, :user_id)
+    params.require(:booking).permit(:arrival, :period, :total, :status, :guests, :flat_id, :user_id)
   end
 
 

@@ -23,7 +23,11 @@
       <!-- Card box style -->
 
         <div class="col-xs-12 padding-0">
-          <div class="card" style="background-image: url('<%= cl_image_path @booking.flat.photo %>');">
+          <% if @flat.photo? %>
+            <div class="card" style="background-image: url('<%= cl_image_path @booking.flat.photo %>');">
+          <% else %>
+            <div class="card" style="background-image: url('<%= image_path("example.png")%>');">
+          <% end %>
           </div>
         </div>
       <hr>
@@ -33,6 +37,7 @@
           <h4>Booking status: <%= @booking.status %> </h4>
 
           <p>Number of guests: <%= @booking.guests  %></p>
+          <p>Arrival Date: <%= @booking.arrival.strftime("%a, %b %d, %Y") %></p>
           <p>Number of nights: <%= @booking.period  %></p>
           <p>Booked at: <%= @booking.created_at.strftime("%a, %b %d, %Y") %></p>
           <h4>Total price: £<%= @booking.total %> </h4>
