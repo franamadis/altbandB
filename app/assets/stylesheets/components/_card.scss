@@ -15,6 +15,42 @@
   opacity: 1.0;
   transform: scale(1.05, 1.05);
 }
+.card-booking {
+  border-radius: 3px;
+  border: 1px solid grey;
+  margin: 5px 5px;
+  height: 250px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  opacity: 0.9;
+  position: relative;
+  text-align: left;
+  a {
+    color: black;
+    padding-left: 25px;
+    padding-top: 10px;
+    font-size: 40px;
+    letter-spacing: 3px;
+    // text-align: center;
+  }
+}
+
+.card-descr p {
+  color: black;
+  font-size: 20px;
+  padding-left: 25px;
+  margin-top: 20px;
+  letter-spacing: 1px;
+}
+
+.banner .title-booking {
+  color: #c2d8ea;
+  text-shadow: 1px 1px 1px black;
+  padding-bottom: 25px;
+  // font-size: 40px;
+}
+
 // .card:hover .card-description h2 {
 //   font-size: xx-large;
 // }
@@ -99,4 +135,67 @@
   text-align: center;
 }
 
+// .flex-container {
+//     display: -ms-flexbox;
+//     display: -webkit-flex;
+//     display: flex;
+//     -webkit-flex-direction: row;
+//     -ms-flex-direction: row;
+//     flex-direction: row;
+//     -webkit-flex-wrap: wrap;
+//     -ms-flex-wrap: wrap;
+//     flex-wrap: wrap;
+//     -webkit-justify-content: center;
+//     -ms-flex-pack: center;
+//     justify-content: center;
+//     -webkit-align-content: center;
+//     -ms-flex-line-pack: center;
+//     align-content: center;
+//     -webkit-align-items: center;
+//     -ms-flex-align: center;
+//     align-items: center;
+
+//     border-radius: 0px;
+//     box-shadow: 3px 3px 3px darkgrey;
+//     // margin: 5px 5px;
+//     // height: 150px;
+//     width: 350px;
+//     // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+//     a {
+//       color: black;
+//       font-size: 12px;
+//     }
+//     }
+
+// .flex-item:nth-child(1) {
+//     -webkit-order: 0;
+//     -ms-flex-order: 0;
+//     order: 0;
+//     -webkit-flex: 2 1 auto;
+//     -ms-flex: 2 1 auto;
+//     flex: 2 1 auto;
+//     -webkit-align-self: stretch;
+//     -ms-flex-item-align: stretch;
+//     align-self: stretch;
+
+//     background-size: cover;
+//     background-position: center !important;
+//     opacity: 0.9;
+//     // position: relative;
+//     // transform-origin: center;
+//     // transition: .5s;
+
+//     }
+
+// .flex-item:nth-child(2) {
+//     -webkit-order: 0;
+//     -ms-flex-order: 0;
+//     order: 0;
+//     -webkit-flex: 1 1 auto;
+//     -ms-flex: 1 1 auto;
+//     flex: 1 1 auto;
+//     -webkit-align-self: stretch;
+//     -ms-flex-item-align: stretch;
+//     align-self: stretch;
+//     }
 
