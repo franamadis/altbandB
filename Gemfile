@@ -25,6 +25,7 @@ gem 'pundit'
 gem 'omniauth-facebook'
 gem "geocoder"
 gem 'pg_search'
+gem 'bootstrap-datepicker-rails'
 
 
 group :development do
