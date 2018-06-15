@@ -27,8 +27,8 @@
       
     
 
-          <div class="row">
-            <div class="col-xs-6">
+          <div class="row" style="display: flex;">
+            <div class="col-xs-8">
               <div class="boxes" id="formulaire" style="border-radius: 20px;background-color: rgba(255, 255, 255, 0.6);">
                 <div class="banner-content uptext">
                   <h2><%= @flat.name %></h2>
@@ -41,13 +41,11 @@
             </div>
           </div>
 
-          <div class="col-xs-4">
-          </div>
 
       <!-- added form for booking, changing routes booking [:new] -->
       <!-- uncomment booking new method, added to flats controller -->
           <div class="col-xs-4">
-            <div class="boxes" id="formulaire">
+            <div class="boxes" id="formulaire" style="border-radius: 20px;background-color: rgba(255, 255, 255, 0.6);">
 
               <p><strong> <%= @flat.name %> </p></strong>
               <!-- < if current_user.flats > -->
