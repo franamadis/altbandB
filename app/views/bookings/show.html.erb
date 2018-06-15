@@ -40,6 +40,13 @@
 
           <h4>Price per night: £<%= @booking.flat.price %> </h4>
           <hr>
+                    <% if policy(@flat).edit? %>
+          <div class="buttons">
+            <%= link_to "Update", edit_flat_path(@flat) %>
+
+          </div>
+          <% end %>
+          <hr>
                   <!-- < link_to "Book Now", new_flat_booking_path(@flat), class: "card-link" > -->
                 </div>
             </div>
@@ -72,12 +79,7 @@
         </div>
 
 
-      <% if policy(@flat).edit? %>
-      <div class="buttons">
-        <%= link_to "Update", edit_flat_path(@flat) %>
 
-      </div>
-      <% end %>
       </div>
     <%# <h1>SHARE A BED</h1>
     <p>Don't sleep alone anymore ! Find a warm double bed </p>
@@ -110,60 +112,3 @@
 
 
 
-<div class="container">
-
-<!-- maps whole display -->
-  <div class="row">
-    <div class="col-xs-12">
-       <div
-          id="map"
-          style="width: 100%;
-          height: 300px;"
-          data-markers="<%= @marker.to_json %>">
-        </div>
-    </div>
-  </div>
-
-
-<!-- first column picture and summary -->
-  <div class="row">
-    <div class="col-xs-7">
-
-      <!-- col-xs-4 col-sm-4 -->
-      <h2>Summary of your booking</h2>
-          <hr>
-      <!-- Card box style -->
-
-        <div class="col-xs-12 padding-0">
-          <% if @flat.photo? %>
-            <div class="card" style="background-image: url('<%= cl_image_path @booking.flat.photo %>');">
-          <% else %>
-            <div class="card" style="background-image: url('<%= image_path("example.png")%>');">
-          <% end %>
-          </div>
-        </div>
-      <hr>
-    <!-- summary text -->
-       
-
-      <!-- </div> -->
-    </div>
-<!-- second column -->
-  <div class="row">
-    <div class="col-xs-5">
-      <h2>checking if it works</h2>
-      <hr>
-
-      <h4>kdfksjflkdkfjsdklfjlsdjflk </h4>
-      <h4>kdfksjflkdkfjsdklfjlsdjflk </h4>
-      <h4>kdfksjflkdkfjsdklfjlsdjflk </h4>
-      <h4>kdfksjflkdkfjsdklfjlsdjflk </h4>
-      <h4>kdfksjflkdkfjsdklfjlsdjflk </h4>
-      <h4>kdfksjflkdkfjsdklfjlsdjflk </h4>
-
-      <p>Number of nights: <%= @booking.period  %></p>
-    </div>
-  </div>
-
-  <!-- </div> -->
-</div>
