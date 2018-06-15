@@ -3,7 +3,15 @@ class PagesController < ApplicationController
 
   def home
     if params[:query].present?
-      @flats = Flat.search_by_name_and_address
+      @flats = Flat.where.not(latitude: nil, longitude: nil).search_by_name_and_address(params[:query])
+  
+      @markers = @flats.map do |flat|
+        {
+          lat: flat.latitude,
+          lng: flat.longitude,
+        }
+
+      end
     else
       @flats = Flat.where.not(latitude: nil, longitude: nil)
 
@@ -11,8 +19,7 @@ class PagesController < ApplicationController
         {
           lat: flat.latitude,
           lng: flat.longitude#,
-          # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
-        }
+        } 
       end
     end
   end
