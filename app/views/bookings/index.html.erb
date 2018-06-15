@@ -2,17 +2,9 @@
 <div class="container">
     <div class="row">
 
-    <div class="banner-content">
-      <h1 class="title-booking">Here are your bookings:</h1>
-      <ul>
-        <% @bookings.each do |booking| %>
-          <li><%= booking.flat.name %></li>
-          <li>Your stay starts on the day <%= booking.arrival %> and will <%= booking.period %> days</li>
-          <li>You pay for <%= booking.total %> it.</li>
-          <li>The status of this booking is <%= booking.status %>;</li>
-        <% end %>
-      </ul>
-
+       <h1 class="title-booking">
+        All your bookings
+        </h1>
     </div>
    <div class="row">
       <div class="banner-content">
