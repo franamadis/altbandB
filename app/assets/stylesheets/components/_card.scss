@@ -16,14 +16,14 @@
   transform: scale(1.05, 1.05);
 }
 .card-booking {
-  border-radius: 3px;
-  border: 1px solid grey;
-  margin: 5px 5px;
+  border-radius: 15px;
+  margin: 10px 10px;
+  padding: 5px;
   height: 250px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
-  opacity: 0.9;
+  opacity: 1;
   position: relative;
   text-align: left;
   a {
@@ -44,12 +44,13 @@
   letter-spacing: 1px;
 }
 
-.banner .title-booking {
-  color: white;
-  // color: #c2d8ea;
+.title-booking {
+  // color: white;
+  color: #4d6171;
   text-shadow: 1px 1px 1px black;
   padding-bottom: 25px;
   font-size: 50px;
+  text-align: center;
 }
 
 // .card:hover .card-description h2 {
