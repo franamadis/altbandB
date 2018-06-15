@@ -29,14 +29,28 @@
 
           <div class="row" style="display: flex;">
             <div class="col-xs-8">
-              <div class="boxes" id="formulaire" style="border-radius: 20px;background-color: rgba(255, 255, 255, 0.6);">
+              <div class="boxes" id="formulaire" style="border-radius: 20px;background-color: rgba(255, 255, 255, 0.6); color: black;"">
                 <div class="banner-content uptext">
-                  <h2><%= @flat.name %></h2>
-                  <p><%= @flat.address %></p>
-                  <p><%= @flat.description %></p>
-                  <p><%= @flat.price %></p>
-                  <p><%= @flat.max_guests %></p>
-                  <!-- < link_to "Book Now", new_flat_booking_path(@flat), class: "card-link" > -->
+                 <hr>
+
+                  <h4>Flat's info:</h4>
+                  <p>Name of apartment: <%= @flat.name %> </p>
+                  <p>Location: <%= @flat.address %> </p>
+                  <p>Description: <%= @flat.description %> </p>
+
+                  <h4>Price per night: £<%= @flat.price %> </h4>
+                   <div class="buttons">
+                   <hr>
+                        <% if current_user = @flat.user_id %>
+        <% if policy(@flat).edit? %>
+          <div class="buttons">
+          <%= link_to "Update", edit_flat_path(@flat) %>
+          </div>
+        <% end %>
+      <% end %>
+<!-- <%= link_to "Delete", flat_path(@flat), method: :delete, data: { confirm: "Are you sure you want to delete?" } %> -->
+      </div>
+          <hr>
                 </div>
             </div>
           </div>
@@ -45,7 +59,7 @@
       <!-- added form for booking, changing routes booking [:new] -->
       <!-- uncomment booking new method, added to flats controller -->
           <div class="col-xs-4">
-            <div class="boxes" id="formulaire" style="border-radius: 20px;background-color: rgba(255, 255, 255, 0.6);">
+            <div class="boxes" id="formulaire" style="border-radius: 20px;background-color: rgba(255, 255, 255, 0.6);color: black;">
 
               <p><strong> <%= @flat.name %> </p></strong>
               <!-- < if current_user.flats > -->
@@ -58,13 +72,7 @@
 
         </div>
 
-
-      <% if policy(@flat).edit? %>
-      <div class="buttons">
-        <%= link_to "Update", edit_flat_path(@flat) %>
-        <%= link_to "Delete", flat_path(@flat), method: :delete, data: { confirm: "Are you sure you want to delete?" } %>
-      </div>
-      <% end %>
+ 
       </div>
     <%# <h1>SHARE A BED</h1>
     <p>Don't sleep alone anymore ! Find a warm double bed </p>

@@ -38,7 +38,7 @@
             </li>
             <li>
             <% if current_user.owner %>
-              <%= link_to "Control requests", booking_requests_path, class: "navbar-wagon-item navbar-wagon-link" %>
+              <%= link_to "Reservations Requests", booking_requests_path, class: "navbar-wagon-item navbar-wagon-link" %>
             <% end %>
             </li>
           </ul>
@@ -74,7 +74,7 @@
             </li> -->  
             <li>
               <% if current_user!=nil && current_user.owner %>
-                <%= link_to "Control requests", booking_requests_path, class: "navbar-wagon-item navbar-wagon-link" %>
+                <%= link_to "Reservation Requests", booking_requests_path, class: "navbar-wagon-item navbar-wagon-link" %>
               <% end %>
             </li>
           </ul>

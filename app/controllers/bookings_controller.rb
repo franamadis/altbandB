@@ -10,13 +10,13 @@ class BookingsController < ApplicationController
   def show
     @booking = Booking.find(params[:id])
     @flat = Flat.find(@booking.flat_id)
+    @marker = [
+      lat: @flat.latitude,
+      lng: @flat.longitude
+    ]
+    
   end
 
-
-#   def new
-#     @flat = Flat.find(params[:flat_id])
-#     @booking = Booking.new
-#   end
 
   def create
     @flat = Flat.find(params[:flat_id])
@@ -41,12 +41,22 @@ class BookingsController < ApplicationController
   def edit
     @booking = Booking.find(params[:id])
     authorize @booking
+    @flat = Flat.find(@booking.flat_id)
+    @marker = [
+      lat: @flat.latitude,
+      lng: @flat.longitude
+    ]
+  
   end
 
   def update
     @booking = Booking.find(params[:id])
     @flat = Flat.find(params[:flat_id])
     @booking.update(booking_params)
+    @marker = [
+      lat: @flat.latitude,
+      lng: @flat.longitude
+    ]
     if @booking.save
       redirect_to booking_requests_path
     else
