@@ -14,7 +14,7 @@
   <%= f.input :period, placeholder: "Insert the number of nights you want", :collection => 1..30, default: '1', label: false %>
   <hr>
   Arrival date:
-  <%= f.date_field :arrival, data:{ provide:'datepicker' } %>
+  <%= f.input :arrival %>
   <hr>
   Max Guests: <%= @flat.max_guests %>
   <%= f.input :guests, placeholder: "Max Guests: '#{@flat.max_guests}'", :collection => 1..@flat.max_guests, default: '1', label: false %>

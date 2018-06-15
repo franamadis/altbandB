@@ -41,10 +41,10 @@ class FlatsController < ApplicationController
     @flat = Flat.find(params[:id])
     # added to combine bookings method to flat show page
     @booking = Booking.new
-    @marker = [
+    @marker = [{
         lat: @flat.latitude,
         lng: @flat.longitude
-    ]
+    }]
 
     authorize @flat
   end
