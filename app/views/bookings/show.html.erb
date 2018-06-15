@@ -1,3 +1,114 @@
+   <div
+    id="map"
+    style="width: 100%;
+      height: 198px;
+      box-shadow: 0px 2px 3px black;
+      position: absolute;
+      overflow: hidden;
+      position: absolute;
+      top: 0px;
+      right: 0;
+      opacity: 1;
+      margin-top: 72px;"
+    data-markers="<%= @marker.to_json %>">
+  </div>
+<div class="page-content" style="position: relative; margin-top: 202px;">
+    <% if @flat.photo? %>
+          <div class="banner banner-image" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.4) 50%), url('<%= cl_image_path @flat.photo %>');">
+     
+
+          <% else %>
+          <div class="banner banner-image" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.4) 50%), url('<%= image_path("example.png")%>');">
+      
+          <% end %>
+
+
+          <div class="container" style="width: 100%; height: 198px;position: absolute; position: absolute; top: 30px; right: 0pxç;">
+      
+    
+
+          <div class="row" style="display: flex;">
+            <div class="col-xs-8">
+              <div class="boxes" id="formulaire" style="border-radius: 20px;background-color: rgba(255, 255, 255, 0.6);">
+                <div class="banner-content uptext" style="color: black;">
+                 <hr>
+
+          <h4>Flat's info:</h4>
+          <p>Name of apartment: <%= @booking.flat.name %> </p>
+          <p>Location: <%= @booking.flat.address %> </p>
+          <p>Description: <%= @booking.flat.description %> </p>
+
+          <h4>Price per night: £<%= @booking.flat.price %> </h4>
+          <hr>
+                  <!-- < link_to "Book Now", new_flat_booking_path(@flat), class: "card-link" > -->
+                </div>
+            </div>
+          </div>
+
+
+      <!-- added form for booking, changing routes booking [:new] -->
+      <!-- uncomment booking new method, added to flats controller -->
+          <div class="col-xs-4">
+            <div class="boxes" id="formulaire" style="border-radius: 20px;background-color: rgba(255, 255, 255, 0.6);color: black;">
+
+              <div>
+
+          <h4>Booking status: <%= @booking.status %> </h4>
+
+          <p>Number of guests: <%= @booking.guests  %></p>
+          <p>Arrival Date: <%= @booking.arrival.strftime("%a, %b %d, %Y") %></p>
+          <p>Number of nights: <%= @booking.period  %></p>
+          <p>Booked at: <%= @booking.created_at.strftime("%a, %b %d, %Y") %></p>
+          <h4>Total price: £<%= @booking.total %> </h4>
+         
+          <div class="btn btn-primary button-flat">
+            <%= link_to "Back", root_path %>
+          </div>
+
+        </div>
+            </div>
+          </div>
+
+        </div>
+
+
+      <% if policy(@flat).edit? %>
+      <div class="buttons">
+        <%= link_to "Update", edit_flat_path(@flat) %>
+
+      </div>
+      <% end %>
+      </div>
+    <%# <h1>SHARE A BED</h1>
+    <p>Don't sleep alone anymore ! Find a warm double bed </p>
+
+  <div class="search-bar">
+    <form action="/beds" class="form-inline padded">
+      <input class="form-control border-radius input-lg" placeholder="Paris" type="text">
+      <input name="checkin" class="form-control border-radius input-lg datepicker" placeholder="Checkin" type="text">
+      <input name="checkout" class="form-control border-radius input-lg datepicker" placeholder="Checkout" type="text">
+      <select name="" id="" class="form-control border-radius input-lg">
+        <option value="1">Man</option>
+        <option value="2">Woman</option>
+        <option value="3">Both</option> %>
+      <%# </select>
+      <input class="btn btn-danger btn-lg" value="Search" type="submit">
+    </form> %>
+  </div>
+  </div>
+</div>
+
+</div>
+  
+  
+   
+  
+<div>
+
+
+
+
+
 
 <div class="container">
 
@@ -12,6 +123,7 @@
         </div>
     </div>
   </div>
+
 
 <!-- first column picture and summary -->
   <div class="row">
@@ -32,29 +144,7 @@
         </div>
       <hr>
     <!-- summary text -->
-        <div>
-
-          <h4>Booking status: <%= @booking.status %> </h4>
-
-          <p>Number of guests: <%= @booking.guests  %></p>
-          <p>Arrival Date: <%= @booking.arrival.strftime("%a, %b %d, %Y") %></p>
-          <p>Number of nights: <%= @booking.period  %></p>
-          <p>Booked at: <%= @booking.created_at.strftime("%a, %b %d, %Y") %></p>
-          <h4>Total price: £<%= @booking.total %> </h4>
-          <hr>
-
-          <h4>Flat's info:</h4>
-          <p>Name of apartment: <%= @booking.flat.name %> </p>
-          <p>Location: <%= @booking.flat.address %> </p>
-          <p>Description: <%= @booking.flat.description %> </p>
-
-          <h4>Price per night: £<%= @booking.flat.price %> </h4>
-          <hr>
-          <div class="btn btn-primary button-flat">
-            <%= link_to "Back", root_path %>
-          </div>
-
-        </div>
+       
 
       <!-- </div> -->
     </div>

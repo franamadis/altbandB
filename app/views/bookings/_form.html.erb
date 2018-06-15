@@ -1,4 +1,4 @@
-<%= simple_form_for [@flat, @booking], html: { class: "new_flat"} do |f| %>
+<%= simple_form_for([@flat, @booking], input_html: { class: "new_flat", style: "font-size: medium"}) do |f| %>
   <% if @booking.errors.any? %>
     <div class="errors-container">
       <ul>
