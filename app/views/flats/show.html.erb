@@ -1,63 +1,104 @@
-<div>
-  <div class="container">
-
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="boxes">
-
-          <% if @flat.photo? %>
-          <div class="banner banner-image" style="background-image: url('<%= cl_image_path @flat.photo %>');">
-          </div>
+   <div
+    id="map"
+    style="width: 100%;
+      height: 198px;
+      box-shadow: 2px 2px 3px black;
+      position: absolute;
+      overflow: hidden;
+      position: absolute;
+      top: 0px;
+      right: 0;
+      opacity: 1;
+      margin-top: 72px;"
+    data-markers="<%= @marker.to_json %>">
+  </div>
+<div class="page-content" style="position: relative; margin-top: 202px;">
+    <% if @flat.photo? %>
+          <div class="banner banner-image" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.4) 50%), url('<%= cl_image_path @flat.photo %>');">
+     
 
           <% else %>
-          <div class="banner banner-image" style="background-image: url('<%= image_path("example.png")%>');">
-          </div>
+          <div class="banner banner-image" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.4) 50%), url('<%= image_path("example.png")%>');">
+      
           <% end %>
-        </div>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col-xs-8">
-        <div class="boxes" id="formulaire">
-          <div class="banner-content uptext">
-            <h2><%= @flat.name %></h2>
-            <p><%= @flat.address %></p>
-            <p><%= @flat.description %></p>
-            <p><%= @flat.price %></p>
-            <p><%= @flat.max_guests %></p>
-            <!-- < link_to "Book Now", new_flat_booking_path(@flat), class: "card-link" > -->
+
+          <div class="container" style="width: 100%; height: 198px;position: absolute; position: absolute; top: 150px; right: 0pxç;">
+      
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="boxes">
+
+              
+              </div>
+            </div>
           </div>
-          <div
-          id="map"
-          style="width: 100%;
-          height: 600px;"
-          data-markers="<%= @marker.to_json %>">
+
+          <div class="row">
+            <div class="col-xs-8">
+              <div class="boxes" id="formulaire">
+                <div class="banner-content uptext">
+                  <h2><%= @flat.name %></h2>
+                  <p><%= @flat.address %></p>
+                  <p><%= @flat.description %></p>
+                  <p><%= @flat.price %></p>
+                  <p><%= @flat.max_guests %></p>
+                  <!-- < link_to "Book Now", new_flat_booking_path(@flat), class: "card-link" > -->
+                </div>
+              
+            </div>
+          </div>
+
+      <!-- added form for booking, changing routes booking [:new] -->
+      <!-- uncomment booking new method, added to flats controller -->
+          <div class="col-xs-4">
+            <div class="boxes" id="formulaire">
+
+              <p><strong> <%= @flat.name %> </p></strong>
+              <!-- < if current_user.flats > -->
+                <!-- <p>Sorry, you can't book your own flat, silly!</p> -->
+              <!-- < else > -->
+              <%=  render 'bookings/form', flat: @flat, booking: @booking %>
+              <!-- < end > -->
+            </div>
+          </div>
+
         </div>
+
+
+      <% if policy(@flat).edit? %>
+      <div class="buttons">
+        <%= link_to "Update", edit_flat_path(@flat) %>
+        <%= link_to "Delete", flat_path(@flat), method: :delete, data: { confirm: "Are you sure you want to delete?" } %>
       </div>
-    </div>
-
-<!-- added form for booking, changing routes booking [:new] -->
-<!-- uncomment booking new method, added to flats controller -->
-    <div class="col-xs-4">
-      <div class="boxes" id="formulaire">
-
-        <p><strong> <%= @flat.name %> </p></strong>
-        <!-- < if current_user.flats > -->
-          <!-- <p>Sorry, you can't book your own flat, silly!</p> -->
-        <!-- < else > -->
-        <%=  render 'bookings/form', flat: @flat, booking: @booking %>
-        <!-- < end > -->
+      <% end %>
       </div>
-    </div>
+    <%# <h1>SHARE A BED</h1>
+    <p>Don't sleep alone anymore ! Find a warm double bed </p>
 
+  <div class="search-bar">
+    <form action="/beds" class="form-inline padded">
+      <input class="form-control border-radius input-lg" placeholder="Paris" type="text">
+      <input name="checkin" class="form-control border-radius input-lg datepicker" placeholder="Checkin" type="text">
+      <input name="checkout" class="form-control border-radius input-lg datepicker" placeholder="Checkout" type="text">
+      <select name="" id="" class="form-control border-radius input-lg">
+        <option value="1">Man</option>
+        <option value="2">Woman</option>
+        <option value="3">Both</option> %>
+      <%# </select>
+      <input class="btn btn-danger btn-lg" value="Search" type="submit">
+    </form> %>
   </div>
+  </div>
+</div>
+
+</div>
+  
+  
+   
+  
+<div>
 
 
-<% if policy(@flat).edit? %>
-<div class="buttons">
-  <%= link_to "Update", edit_flat_path(@flat) %>
-  <%= link_to "Delete", flat_path(@flat), method: :delete, data: { confirm: "Are you sure you want to delete?" } %>
-</div>
-<% end %>
-</div>
+
+

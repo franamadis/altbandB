@@ -22,7 +22,7 @@
         <%= link_to "ADD A FLAT", new_flat_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <% end %>
       <%= link_to "MY BOOKINGS", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "BOOK A FLAT", flats_path, class: "navbar-wagon-item navbar-wagon-link" %>
+   <!--     <%= link_to "BOOK A FLAT", flats_path, class: "navbar-wagon-item navbar-wagon-link" %>  -->
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -69,9 +69,9 @@
             <li>
               <%= link_to "My Bookings", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
             </li>
-            <li>
+  <!--         <li>
               <%= link_to "Book a Flat", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
-            </li>
+            </li> -->  
             <li>
               <% if current_user!=nil && current_user.owner %>
                 <%= link_to "Control requests", booking_requests_path, class: "navbar-wagon-item navbar-wagon-link" %>
