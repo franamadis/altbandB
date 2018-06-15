@@ -9,8 +9,8 @@ Arrival date:
 <hr>
 Max Guests: <%= @flat.max_guests %>
 <%= f.input :guests, placeholder: "Max Guests: '#{@flat.max_guests}'", :collection => 1..@flat.max_guests, default: '1', label: false %>
-<hr>
-<%= f.button :submit %>
+
+<%= f.button :submit, class: "btn btn-secondary" %>
 <% end %>
 
 

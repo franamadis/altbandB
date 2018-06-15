@@ -3,13 +3,7 @@
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo.png", height: 50 %>
   <% end %>
-  
-  <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <% if user_signed_in? %>
-
-      <!-- Links when logged in -->
-      <div>
+   <div>
     <%= form_tag root_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
@@ -18,6 +12,13 @@
       %>
     <% end %>
   </div>
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+  
+    <% if user_signed_in? %>
+
+      <!-- Links when logged in -->
+     
       <% if policy(Flat).create? %>
         <%= link_to "ADD A FLAT", new_flat_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <% end %>
@@ -50,7 +51,6 @@
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
-  <div>
     <div class="navbar-wagon-item hidden-md hidden-lg">
       <% if user_signed_in? %>
         <div class="dropdown">
@@ -78,7 +78,6 @@
               <% end %>
             </li>
           </ul>
-        </div>
       <% else %>
       <!-- Login link (when logged out) -->
         <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
